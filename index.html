@@ -206,6 +206,21 @@
 
     /* Teléfonos (layout a 1 columna, botones full-width, polaroid en flujo) */
     @media (max-width: 540px){
+      /* Mobile: carta abierta y sin solapa */
+      .envelope { padding-top:16px; }
+      .envelope .flap { display:none; }               /* oculta la solapa */
+      .envelope .paper{
+        opacity:1; transform:none; pointer-events:auto; /* muestra el contenido */
+      }
+
+      .polaroid{
+        position:static; width:100%; margin-top:12px;   /* evita desbordes/solapes */
+        transform:none !important; opacity:1;
+      }
+
+      /* Ajustes visuales extra */
+      .scene{ padding:12px }
+      .paper .photo{ height:180px }  
       .title{font-size:clamp(32px, 12vw, 42px)}
       .lead{font-size:1rem}
       .cta{gap:10px}
