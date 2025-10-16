@@ -4,9 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Para Samy 💛</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --bg1:#0f172a; /* slate-900 */
@@ -17,26 +19,79 @@
       --ink:#1f2937; /* neutral ink */
       --muted:#94a3b8; /* slate-400 */
     }
+
     *{box-sizing:border-box}
+
     body{
-      margin:0; min-height:100vh; font-family:Poppins, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      color:#e5e7eb; background:radial-gradient(1200px 800px at 80% -10%, #1f2937 0%, var(--bg1) 60%), linear-gradient(160deg, var(--bg2), var(--bg1));
-      display:flex; align-items:center; justify-content:center; padding:24px;
+      margin:0;
+      min-height:100dvh; /* mejor en móvil que 100vh */
+      font-family:Poppins, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color:#e5e7eb;
+      background:
+        radial-gradient(1200px 800px at 80% -10%, #1f2937 0%, var(--bg1) 60%),
+        linear-gradient(160deg, var(--bg2), var(--bg1));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:clamp(16px, 4vw, 24px);
+      -webkit-tap-highlight-color:transparent;
     }
-    .container{width:100%; max-width:980px}
+
+    .container{
+      width:100%;
+      max-width:980px;
+      margin:auto;
+    }
 
     /* Card base */
-    .card{background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,.08); backdrop-filter: blur(10px);
-      border-radius:24px; padding:28px; box-shadow:0 20px 60px rgba(0,0,0,.35)}
+    .card{
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
+      border-radius:24px;
+      padding:clamp(18px, 4vw, 28px);
+      box-shadow:0 20px 60px rgba(0,0,0,.35)
+    }
 
-    .title{font-family:Sacramento, cursive; font-size:52px; color:var(--accent); margin:6px 0 12px}
-    .lead{line-height:1.8; font-size:1.05rem; color:#e9edf5}
+    .title{
+      font-family:Sacramento, cursive;
+      font-size:clamp(36px, 10vw, 52px);
+      color:var(--accent);
+      margin:6px 0 12px
+    }
+
+    .lead{
+      line-height:1.8;
+      font-size:clamp(0.98rem, 2.5vw, 1.05rem);
+      color:#e9edf5
+    }
     .muted{color:var(--muted)}
 
-    .cta{margin-top:22px; display:flex; gap:12px; flex-wrap:wrap}
-    .btn{cursor:pointer; border:none; padding:14px 20px; font-weight:600; border-radius:14px; transition:transform .15s ease, box-shadow .15s ease;}
-    .btn-primary{background:linear-gradient(180deg, var(--accent), var(--accent2)); color:#1f2937; box-shadow:0 12px 24px rgba(245, 158, 11,.35)}
-    .btn-ghost{background:transparent; color:#e5e7eb; border:1px solid rgba(255,255,255,.16)}
+    .cta{
+      margin-top:22px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap
+    }
+
+    .btn{
+      cursor:pointer;
+      border:none;
+      padding:14px 20px;
+      font-weight:600;
+      border-radius:14px;
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .btn-primary{
+      background:linear-gradient(180deg, var(--accent), var(--accent2));
+      color:#1f2937;
+      box-shadow:0 12px 24px rgba(245, 158, 11,.35)
+    }
+    .btn-ghost{
+      background:transparent;
+      color:#e5e7eb;
+      border:1px solid rgba(255,255,255,.16)
+    }
     .btn:hover{transform:translateY(-1px)}
 
     /* Stage switching */
@@ -45,52 +100,150 @@
     @keyframes fadeIn{from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:none}}
 
     /* Envelope scene */
-    .scene{display:grid; place-items:center; padding:20px}
-    .envelope-wrap{position:relative; width:min(520px, 88vw); perspective:1400px;}
-
-    .envelope{position:relative; border-radius:18px; background:linear-gradient(180deg,#fafafa,var(--paper)); box-shadow:0 30px 60px rgba(0,0,0,.35); overflow:hidden; padding-top:110px;}
-    .envelope .flap{position:absolute; left:-1px; right:-1px; top:-1px; height:110px; border-radius:18px 18px 0 0; background:linear-gradient(180deg, #ffe9b9, #ffd77a); transform-origin:50% 100%; transform:rotateX(0deg); transition:transform .8s cubic-bezier(.19,1,.22,1); z-index:4} .envelope.open .flap{transform:rotateX(180deg)}
+    .scene{
+      display:grid;
+      place-items:center;
+      padding:clamp(12px, 4vw, 20px)
+    }
+    .envelope-wrap{
+      position:relative;
+      width:min(520px, 100%);
+      perspective:1400px;
+    }
+    .envelope{
+      position:relative;
+      border-radius:18px;
+      background:linear-gradient(180deg,#fafafa,var(--paper));
+      box-shadow:0 30px 60px rgba(0,0,0,.35);
+      overflow:hidden;
+      padding-top:110px;
+    }
+    .envelope .flap{
+      position:absolute; left:-1px; right:-1px; top:-1px; height:110px;
+      border-radius:18px 18px 0 0;
+      background:linear-gradient(180deg, #ffe9b9, #ffd77a);
+      transform-origin:50% 100%;
+      transform:rotateX(0deg);
+      transition:transform .8s cubic-bezier(.19,1,.22,1);
+      z-index:4
+    }
     .envelope.open .flap{transform:rotateX(180deg)}
 
-    .envelope .paper{z-index:2; position:relative; margin:0 12px 12px; background:var(--paper); border-radius:14px; padding:18px; box-shadow:inset 0 0 0 1px rgba(30,30,30,.06); opacity:0; transform:translateY(12px); transition:opacity .45s ease, transform .45s ease; pointer-events:none}
+    .envelope .paper{
+      z-index:2; position:relative; margin:0 12px 12px;
+      background:var(--paper); border-radius:14px; padding:18px;
+      box-shadow:inset 0 0 0 1px rgba(30,30,30,.06);
+      opacity:0; transform:translateY(12px);
+      transition:opacity .45s ease, transform .45s ease;
+      pointer-events:none
+    }
     .envelope.open .paper{opacity:1; transform:none; pointer-events:auto}
+
     .paper h3{margin:4px 0 6px; color:var(--ink)}
     .paper p{color:#374151; line-height:1.7}
-
-    /* Polaroid photo that slides out diagonally (outside the envelope) */
-    .polaroid{position:absolute; right:-10px; top:8px; width:min(62%, 380px); background:#fff; border-radius:12px; padding:10px 10px 26px; box-shadow:0 18px 40px rgba(0,0,0,.35); transform:translate(0,0) rotate(-6deg) scale(.92); transform-origin:bottom right; opacity:0; transition:transform .6s cubic-bezier(.19,1,.22,1), opacity .6s ease; z-index:6}
-    .polaroid img{display:block; width:100%; height:auto; border-radius:10px; object-fit:contain}
-    .polaroid .caption{position:absolute; left:16px; bottom:8px; font-family:Sacramento, cursive; font-size:24px; color:#78350f}
-    .envelope.open ~ .polaroid{opacity:1; transform:translate(70px,-130px) rotate(-12deg) scale(1)}
-
     .signature{font-family:Sacramento, cursive; font-size:36px; color:#b45309; text-align:right}
-    .paper h3{margin:4px 0 6px; color:var(--ink)}
-    .paper p{color:#374151; line-height:1.7}
-    .paper .photo{width:100%; height:260px; border-radius:12px; object-fit:cover; box-shadow:0 10px 24px rgba(0,0,0,.2); border-radius:12px; object-fit:cover; box-shadow:0 10px 24px rgba(0,0,0,.2)}
+
+    /* Foto dentro del papel si decides usarla */
+    .paper .photo{
+      width:100%;
+      height:260px;
+      border-radius:12px;
+      object-fit:cover;
+      box-shadow:0 10px 24px rgba(0,0,0,.2);
+    }
+
+    /* Polaroid afuera del sobre (desktop) */
+    .polaroid{
+      position:absolute;
+      right:-10px; top:8px;
+      width:min(62%, 380px);
+      background:#fff; border-radius:12px;
+      padding:10px 10px 26px;
+      box-shadow:0 18px 40px rgba(0,0,0,.35);
+      transform:translate(0,0) rotate(-6deg) scale(.92);
+      transform-origin:bottom right;
+      opacity:0;
+      transition:transform .6s cubic-bezier(.19,1,.22,1), opacity .6s ease;
+      z-index:6
+    }
+    .polaroid img{
+      display:block; width:100%; height:auto; border-radius:10px; object-fit:contain
+    }
+    .polaroid .caption{
+      position:absolute; left:16px; bottom:8px;
+      font-family:Sacramento, cursive; font-size:24px; color:#78350f
+    }
+    .envelope.open ~ .polaroid{
+      opacity:1; transform:translate(70px,-130px) rotate(-12deg) scale(1)
+    }
 
     .hint{margin-top:14px; font-size:.95rem; color:var(--muted); text-align:center}
 
-    /* Floating hearts on open */
+    /* Corazones flotantes */
     .hearts{pointer-events:none; position:absolute; inset:0; overflow:hidden}
-    .heart{position:absolute; width:14px; height:14px; transform:rotate(45deg); animation:rise 2.8s ease-in infinite; opacity:0}
-    .heart::before, .heart::after{content:""; position:absolute; width:14px; height:14px; border-radius:50%; background:#f43f5e; left:0; top:-7px}
-    .heart::after{left:-7px; top:0}
-    @keyframes rise{0%{opacity:0; transform:translateY(20px) scale(.7) rotate(45deg)} 10%{opacity:1} 100%{opacity:0; transform:translateY(-280px) scale(1.3) rotate(45deg)}}
-
-    .signature{font-family:Sacramento, cursive; font-size:36px; color:#b45309; text-align:right}
-
-    /* Responsive tweaks */
-    @media (max-width:540px){
-      .title{font-size:42px}
-      .polaroid{width:min(86%, 420px); right:14px; top:58px}
+    .heart{
+      position:absolute; width:14px; height:14px; transform:rotate(45deg);
+      animation:rise 2.8s ease-in infinite; opacity:0
     }
-      .paper .photo{height:180px}
+    .heart::before, .heart::after{
+      content:""; position:absolute; width:14px; height:14px; border-radius:50%; background:#f43f5e; left:0; top:-7px
+    }
+    .heart::after{left:-7px; top:0}
+    @keyframes rise{
+      0%{opacity:0; transform:translateY(20px) scale(.7) rotate(45deg)}
+      10%{opacity:1}
+      100%{opacity:0; transform:translateY(-280px) scale(1.3) rotate(45deg)}
+    }
 
+    /* ======= Responsive tweaks ======= */
+
+    /* Tablets y abajo */
+    @media (max-width: 768px){
+      .card{border-radius:20px}
+      .envelope-wrap{width:min(560px, 100%)}
+      .hint{font-size:.95rem}
+    }
+
+    /* Teléfonos (layout a 1 columna, botones full-width, polaroid en flujo) */
+    @media (max-width: 540px){
+      .title{font-size:clamp(32px, 12vw, 42px)}
+      .lead{font-size:1rem}
+      .cta{gap:10px}
+      .btn{width:100%; padding:15px 18px; font-size:1rem}
+      .scene{padding:12px}
+      .envelope{padding-top:92px}
+      .envelope .flap{height:92px}
+      .polaroid{
+        position:static; /* sale del absoluto para que no desborde */
+        width:100%;
+        margin-top:16px;
+        transform:none !important;
+        opacity:1; /* visible sin animación para evitar saltos */
+      }
+      .polaroid .caption{font-size:22px}
+      .hint{font-size:.95rem}
+      .paper .photo{height:180px}
+    }
+
+    /* Micro pantallas */
+    @media (max-width: 380px){
+      .card{padding:16px}
+      .title{font-size:34px}
+      .signature{font-size:30px}
+    }
+
+    /* Reduce animaciones si el usuario lo prefiere */
+    @media (prefers-reduced-motion: reduce){
+      .stage.active{animation:none}
+      .envelope .flap,
+      .envelope .paper,
+      .polaroid{transition:none}
+      .heart{animation:none}
+    }
   </style>
 </head>
 <body>
   <div class="container">
-
     <!-- Stage 1: Intro message -->
     <section id="stage-intro" class="stage active">
       <div class="card">
@@ -113,20 +266,27 @@
         <div class="envelope-wrap">
           <div class="envelope" id="envelope">
             <div class="flap"></div>
+
             <div class="paper">
               <h3>Para ti ✨</h3>
-              <!-- Reemplaza la ruta de la imagen por la tuya. Guarda la imagen en la misma carpeta y usa ese nombre -->
-              
+              <!-- Aquí podrías poner un párrafo o una imagen dentro del papel -->
+              <!-- <img class="photo" src="tu-foto.jpg" alt="Recuerdo"> -->
               <div class="signature">— Con cariño</div>
             </div>
+
             <div class="hearts" id="hearts"></div>
           </div>
+
           <div class="polaroid">
-              <img src="avion.jpg" alt="Foto de la invitación" />
-              <span class="caption">Guayaquil → Quito</span>
-            </div>
-          <p class="hint"> Si puedes apartar del 21 al 23 de noviembre, me daría mucha alegría que pudiéramos salir los dos.
-                De verdad me gustaría mucho compartir esos días contigo… ya estoy más que listo para verte. ☀️ Toca el sobre para abrirlo 💌.</p>
+            <img src="avion.jpg" alt="Foto de la invitación" />
+            <span class="caption">Guayaquil → Quito</span>
+          </div>
+
+          <p class="hint">
+            Si puedes apartar del 21 al 23 de noviembre, me daría mucha alegría que pudiéramos salir los dos.
+            De verdad me gustaría mucho compartir esos días contigo… ya estoy más que listo para verte. ☀️
+            Toca el sobre para abrirlo 💌.
+          </p>
         </div>
       </div>
     </section>
@@ -138,6 +298,7 @@
     const openEnvelopeBtn = document.getElementById('openEnvelopeBtn');
     const envelope = document.getElementById('envelope');
     const hearts = document.getElementById('hearts');
+
     function show(stage){
       document.querySelectorAll('.stage').forEach(s => s.classList.remove('active'));
       stage.classList.add('active');
@@ -147,9 +308,9 @@
 
     // Envelope open/close
     let opened = false;
-    function spawnHearts(){
-      // Create a few floating hearts
-      for(let i=0;i<18;i++){
+
+    function spawnHearts(count = (window.matchMedia('(max-width:540px)').matches ? 8 : 18)){
+      for(let i=0;i<count;i++){
         const h=document.createElement('div');
         h.className='heart';
         h.style.left = (10 + Math.random()*80) + '%';
@@ -167,7 +328,6 @@
       envelope.classList.toggle('open', opened);
       if(opened) spawnHearts();
     });
-
-    // Music toggle (optional)  </script>
+  </script>
 </body>
 </html>
