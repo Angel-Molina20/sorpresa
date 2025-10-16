@@ -257,6 +257,32 @@ body{ min-height:100dvh; }
       .polaroid{transition:none}
       .heart{animation:none}
     }
+    /* Leyenda más legible sobre la foto */
+.polaroid { padding: 10px 10px 40px; } /* más espacio inferior para la leyenda */
+.polaroid .caption{
+  position:absolute;
+  left:12px;
+  bottom:10px;
+  z-index:7;
+  font-family:Sacramento, cursive;
+  font-size:clamp(20px, 5.5vw, 28px);      /* escala en móvil */
+  color:#5b3a0a;
+  background:rgba(255,255,255,.92);        /* “cinta” blanca */
+  padding:6px 10px;
+  border-radius:10px;
+  box-shadow:0 6px 18px rgba(0,0,0,.18);
+  line-height:1;
+}
+
+/* Ajustes extra en teléfonos para que no se recorte */
+@media (max-width:540px){
+  .polaroid{
+    width:min(62%, 76vw);                   /* un pelín más ancha para caber bien */
+  }
+  .envelope.open ~ .polaroid{
+    transform:translate(26vw,-24vw) rotate(-12deg) scale(1);  /* offset refinado */
+  }
+}
   </style>
 </head>
 <body>
