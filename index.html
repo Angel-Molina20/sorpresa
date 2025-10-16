@@ -204,40 +204,43 @@
       .hint{font-size:.95rem}
     }
 
-    /* Teléfonos (layout a 1 columna, botones full-width, polaroid en flujo) */
     @media (max-width: 540px){
-      .envelope { padding-top:16px; }
-      .envelope .flap { display:none; }        
-      .envelope .paper{
-        opacity:1; transform:none; pointer-events:auto; 
-      }
+  /* Dimensiones y proporciones más “compactas”, pero mismo layout */
+  .scene{ padding:16px }
+  .envelope-wrap{ width:min(520px, 92vw); }
 
-      .polaroid{
-        position:static; width:100%; margin-top:12px;   
-        transform:none !important; opacity:1;
-      }
+  /* Mantener solapa y papel tal como desktop */
+  .envelope{ padding-top:110px; }
+  .envelope .flap{ height:110px; }
 
-      /* Ajustes visuales extra */
-      .scene{ padding:12px }
-      .paper 
-      .title{font-size:clamp(32px, 12vw, 42px)}
-      .lead{font-size:1rem}
-      .cta{gap:10px}
-      .btn{width:100%; padding:15px 18px; font-size:1rem}
-      .scene{padding:12px}
-      .envelope{padding-top:92px}
-      .envelope .flap{height:92px}
-      .polaroid{
-        position:static; /* sale del absoluto para que no desborde */
-        width:100%;
-        margin-top:16px;
-        transform:none !important;
-        opacity:1; /* visible sin animación para evitar saltos */
-      }
-      .polaroid .caption{font-size:22px}
-      .hint{font-size:.95rem}
-      .paper .photo{height:180px}
-    }
+  /* Polaroid sigue ABSOLUTA y superpuesta (no en flujo) */
+  .polaroid{
+    position:absolute;
+    right:-6px;           /* pegadita al borde como en PC */
+    top:8px;
+    width:min(62%, 72vw); /* se escala para caber en móviles estrechos */
+    transform:translate(0,0) rotate(-6deg) scale(.92);
+    opacity:0;            /* arranca oculta igual que en PC */
+  }
+  /* Cuando se abre el sobre, animación y desplazamiento como en PC,
+     pero con offsets adaptados a ancho chico para evitar desbordes */
+  .envelope.open ~ .polaroid{
+    opacity:1;
+    transform:translate(28vw,-26vw) rotate(-12deg) scale(1);
+  }
+
+  /* Tipos y botones un poco más grandes para tap */
+  .title{ font-size:clamp(34px, 10.5vw, 52px); }
+  .lead{ font-size:1rem; }
+  .btn{ padding:14px 18px; font-size:1rem; }
+  .hint{ font-size:.95rem; }
+
+  /* Foto interna si la usas */
+  .paper .photo{ height:200px; }
+}
+
+/* Evitar que el alto “salte” con la barra del navegador móvil */
+body{ min-height:100dvh; }
 
     /* Micro pantallas */
     @media (max-width: 380px){
