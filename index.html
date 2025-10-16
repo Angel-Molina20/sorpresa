@@ -206,6 +206,20 @@
 
     /* Teléfonos (layout a 1 columna, botones full-width, polaroid en flujo) */
     @media (max-width: 540px){
+      .envelope { padding-top:16px; }
+      .envelope .flap { display:none; }        
+      .envelope .paper{
+        opacity:1; transform:none; pointer-events:auto; 
+      }
+
+      .polaroid{
+        position:static; width:100%; margin-top:12px;   
+        transform:none !important; opacity:1;
+      }
+
+      /* Ajustes visuales extra */
+      .scene{ padding:12px }
+      .paper 
       .title{font-size:clamp(32px, 12vw, 42px)}
       .lead{font-size:1rem}
       .cta{gap:10px}
